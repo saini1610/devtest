@@ -1,1 +1,4 @@
-this is first edit after inital commit
+this is second commit  after inital commit
+After inital commit we are going to add new changes 
+add some test message and remove
+some lines
