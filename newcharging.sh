@@ -15,9 +15,9 @@ if [[ ! -e "$FILE" ]]; then
 
     # Perform SCP for missing file case
     /usr/bin/expect <<EOD
-spawn scp "$OUTPUT_FILE" "monitor@10.71.218.7:/home/monitor/all_servers_data/CrbtData/"
+spawn scp "$OUTPUT_FILE" "user@ip:/home/monitor/all_servers_data/CrbtData/"
 expect -nocase "password:"
-send "v_%6P3@g*ALj\r"
+send "passwd\r"
 expect eof
 EOD
     exit 1
@@ -58,9 +58,9 @@ elif [[ $TIME_DIFF -ge 2100 || $ERROR_COUNT -ge 10 ]]; then
     echo "$FILE has NOT been modified in the last half hour and contains errors [-1.00]. Please check Renewals First on Vasserver6 and then charging." >> "$OUTPUT_FILE"
 # Use SCP to transfer the file
     /usr/bin/expect <<EOD
-spawn scp /home/sdpuser/scripts/chgcheck.txt "monitor@10.71.218.7:/home/monitor/all_servers_data/CrbtData/"
+spawn scp /home/sdpuser/scripts/chgcheck.txt "user@ip:/home/monitor/all_servers_data/CrbtData/"
 expect -nocase "password:"
-send "v_%6P3@g*ALj\r"
+send "passwd"
 expect eof
 EOD
 else
